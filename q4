@@ -52,6 +52,33 @@ bx = np.array([
 
 x = np.linalg.solve(A,bx)
 
+bx = np.array([
+             [-1],
+             [1],
+             [0],
+             [0],
+             [0],
+             [1],
+             [1],
+             [0],
+             [0],
+             [0],
+             [0],
+             [0],
+             [0],
+             [0],
+             [0],
+             [0],
+             [0],
+             [0],
+             [0],
+             [0],
+             [0],
+             [0]
+             ])
+y = np.linalg.solve(A,by)
 drawgraph(x,y,edges)
+
+
 
 
