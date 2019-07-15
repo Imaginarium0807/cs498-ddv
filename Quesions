@@ -1,0 +1,44 @@
+1. Question 1
+The variable edge below contains an edge-list representation of an undirected graph of 22 vertices. It is an array of arrays (a two-dimensional array). Each element of the outer array is a two-element array [v1,v2] indicating that the graph contains an edge from vertex v1 to vertex v2. For example edge[0] = [0,1] so the graph has an edge from vertex 0 to vertex 1. There are 22 vertices, so the edges are represented as pairs of values ranging from 0 to 21.
+
+The function drawgraph(x,y,edges) draws the graph's edges using two arrays: x and y. The array x should have one element for each vertex from 0 to 21 that stores the x-coordinate of the position of that vertex. Similary the array y stores the y-coordinates of the 22 vertices. The function drawgraph(x,y,edges) then draws a line for each edge in the edge list connecting that edge's two vertices according to their positions stored in the x and y arrays.
+
+Create a radial layout of the graph stored in edges by setting the vertex position arrays x and y to be uniformly spaced positions around the unit circle. The first vertex should by at the position (1,0) and subsequent vertices should be positioned uniformly around the circle in a counter-clockwise order.
+
+You might find the numpy routines np.cos() and np.sin() useful, as well as the constant np.pi.
+
+If you have positioned your vertices correctly, then the output of drawgraph should look like this:
+
+
+
+
+2. Question 2
+The degree of a vertex is the number of edges connected to it, which for a simple graph is also the number of vertices connected to it. The array edges describes an edge list of a graph with 22 different vertices numbered from 0 to 21. A 22 element integer array deg[] is defined and initialized with zeros. Insert code below that stores in each array element deg[i] the degree of vertex i.
+
+3. Question 3
+The edge list has already been loaded in edges, and n is already set to the number of vertices (22). The array deg[] has already been defined and loaded with the degree of the corresponding vertex.
+
+Compute an n x n square Laplacian matrix A as follows:
+
+A[i,i] = 1
+A[i,j] = -1/deg[i] if there is an edge between vertex i and vertex j
+A[i,j] = 0 otherwise
+A is constructed below as an n x n array representing a matrix, and A[i,j] references row i and column j of that matrix.
+
+. Question 4
+The edge list has already been loaded in edges, and n is already set to the number of vertices (22). The array deg[] has already been defined and loaded with the degree of the corresponding vertex, and the correct Laplacian matrix has already been defined and loaded in A.
+
+We can use Tutte's algorithm for find a planar layout (if one exists) for our graph. Let x and y be n-vectors of the x-coordinates and y-coordinates of the vertices. Tutte's algorithm places a graph vertex at the centroid of the vertices it shares an edge with. The linear system Ax = 0 (where 0 is an n-vector of zero values) finds x-coordinates for vertices in the middle of their neighboring x-coordinates. Ay = 0 similarly would find y-coordinates. Unfortunately, these solutions lead to the trivial solution that places all vertices at the origin (0,0).
+
+In order to avoid this trivial solution, we have to force some vertices to some positions, so the rest of the vertices can position themselves at centroids relative to these initial "pinned" vertices. For the current graph defined by the edge list edges, we will force the first six vertices to the following positions:
+
+vertex 0 -> (-1,-1)
+vertex 1 -> (1,-1)
+vertex 2 -> (-1,0)
+vertex 3 -> (1,0)
+vertex 4 -> (-1,1)
+vertex 5 -> (1,1)
+In order to implement this, the first six rows of the Laplacian matrix A need to be replaced with the first six rows of the identity matrix. Then an n-vector bx is constructed with the first six elements set to the x-coordinates of the first six vertices, and the rest of the elements are zero. Similary, an n-vector by is constructed with the first six elements set to the y-coordinates of the first six vertices. Then solving Ax = bx and Ay = by results in the proper positions.
+
+Use Tutte's algorithm to layout the graph in edges by modifying A and creating bx and by so that x = np.linalg.solve(A,bx) and similary for y can solve for the desired vertex positions for a planar layout of the graph, that looks like this:
+
