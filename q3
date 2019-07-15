@@ -3,7 +3,11 @@
 # deg[i] already set to the degree of vertex i
 
 A = np.array(np.zeros((n,n)))
-
+# Insert code here to fill
+# the nxn matrix A with
+# the Laplacian matrix for
+# the graph represented by
+# the edge-list in array edges
  
 A = np.array([
 
