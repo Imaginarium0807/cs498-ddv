@@ -1,0 +1,25 @@
+# Insert code here to
+# set the first six rows
+# of A to the first six
+# rows of an identity
+# matrix
+
+bx = np.array(np.zeros(n))
+
+# set the first six
+# elements of bx to the
+# desired x coordinates
+# of the first six vertices
+
+x = np.linalg.solve(A,bx)
+
+by = np.array(np.zeros(n))
+
+# set the first six
+# elements of by to the
+# desired y coordinates
+# of the first six vertices
+
+y = np.linalg.solve(A,by)
+
+drawgraph(x,y,edges)
