@@ -5,3 +5,10 @@ d3.selectAll("circle").attr("fill","green")
 
 d3.selectAll("circle").attr("fill",function(d){if(i=1){return "orange"}else
 {return"green"};})
+
+-
+var data = ["red","green"];
+document.getElementById("data").innerHTML = data;
+d3.selectAll("circle")
+.data(data)
+.attr("fill",function(d){return d,})
