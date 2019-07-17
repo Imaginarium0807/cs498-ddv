@@ -1,2 +1,7 @@
 3.select("rect").attr("height",10)
 d3.selectAll("circle").attr("fill","green")
+
+--
+
+d3.selectAll("circle").attr("fill",function(d){if(i=1){return "orange"}else
+{return"green"};})
