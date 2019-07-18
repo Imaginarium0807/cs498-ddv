@@ -1,8 +1,14 @@
 d3.selectAll("circle")
             .data(data)
             .attr("cx",50)
-            .attr("cy",function(d,i){return 50*i;})
+            .attr("cy",function(d,i){return 50*(i+1);})
             .attr("r",function(d){return d;});
+
+
+            
+
+
+
 
 
             
