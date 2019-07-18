@@ -1,22 +1,4 @@
-3.select("rect").attr("height",10)
-d3.selectAll("circle").attr("fill","green")
-
---
-
-d3.selectAll("circle").attr("fill",function(d){if(i=1){return "orange"}else
-{return"green"};})
-
--
-var data = ["red","green"];
-document.getElementById("data").innerHTML = data;
-d3.selectAll("circle")
-.data(data)
-.attr("fill",function(d){return d,})
-
---
-var data = [1,2];
-document.getElementById("data").innerHTML = data;
-d3.selectAll("circle")
-.data(data)
-.attr("fill",function(d){if(d.data=1){return "orange";}else
-{return"green";}})
+    
+d3.select("rect").attr("height",10)
+d3.selectAll("circle").attr("fill","green").attr("cx",30)
+d3.select("circle").attr("fill","red").attr("cx",70)
