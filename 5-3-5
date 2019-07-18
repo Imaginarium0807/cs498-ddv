@@ -1,0 +1,12 @@
+d3.selectAll("circle")
+            .data(data)
+            .attr("cx",50)
+            .attr("cy",function(d,i){return 50*i;})
+            .attr("r",function(d){return d;});
+
+
+            
+
+
+
+
