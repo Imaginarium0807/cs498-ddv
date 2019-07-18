@@ -2,3 +2,8 @@
 d3.select("rect").attr("height",10)
 d3.selectAll("circle").attr("fill","green").attr("cx",30)
 d3.select("circle").attr("fill","red").attr("cx",70)
+
+
+d3.select("rect").attr("height",10)
+d3.selectAll("circle").attr("fill","red").attr("cx",70)
+d3.select("circle").attr("fill","green").attr("cx",30)
