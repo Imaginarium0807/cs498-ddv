@@ -1,1 +1,4 @@
-d3.select("svg").select("g").select("#second rect").attr("fill","red")
+https://www.tutorialsteacher.com/d3js/select-dom-element-using-d3js
+
+
+d3.select("#second rect").style("fill","red")
