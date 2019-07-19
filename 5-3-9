@@ -1,5 +1,6 @@
-// Enter code here
-d3.select('svg').data(data)
+
+d3.selectAll('svg').data(data)
+.enter().append("circle")
 .attr("cx",50)
 .attr("cy",function(d,i){return 50*(1+i)})
 .attr("r",funcion(d)(return d))
