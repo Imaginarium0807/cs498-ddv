@@ -1,5 +1,5 @@
 
-d3.selectAll('svg').data(data)
+d3.select("svg").selectAll("rect").data(data)
 .enter().append("circle")
 .attr("cx",50)
 .attr("cy",function(d,i){return 50*(1+i);})
