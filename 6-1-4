@@ -1,5 +1,5 @@
-var x=d3.scaleBand().domain([0,1,2,3,4,5]).range([0,width]);
-var y =d3.scaleLinear().domain([0,42]).range([height,0])
+var x=d3.scaleBand().domain([0,1,2,3,4,5]).range([0,300]);
+var y=d3.scaleLinear().domain([0,42]).range([300,0])
 d3.select("svg")
 .attr("width",width +2*margin)
 .attr("height",height + 2*margin)
@@ -8,8 +8,9 @@ d3.select("svg")
 .call(d3.axisLeft(y))
 .attr("transform","translate("+margin+","+(height+margin)+")")
 .call(d3.axisBottom(x))
-
-
+.selectAll("rect").data(data)).append("rect")
+.attr('width',function(d,i) {return xs(d);})
+.attr('height',function(d,i),{return d})
 
 
 
