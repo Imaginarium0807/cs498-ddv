@@ -1,0 +1,16 @@
+var x=d3.scaleBand().domain([0,1,2,3,4,5]).range([0,width]);
+var y =d3.scaleLinear().domain([0,42]).range([height,0])
+d3.select("svg")
+.attr("width",width +2*margin)
+.attr("height",height + 2*margin)
+.append("g")
+.attr("transform","translate("+margin+","+margin+")")
+.call(d3.axisLeft(y))
+.attr("transform","translate("+margin+","+(height+margin)+")")
+.call(d3.axisBottom(x))
+
+
+
+
+
+
