@@ -87,6 +87,37 @@ d3.select("svg")
 .attr("x",function(d,i){return 20*i})
 .attr("y",100)
 
+--
+
+
+
+d3.select("svg")
+.selectAll().data(data).enter().append("rect")
+.attr("width",100/3)
+.attr("height",function(d,i){return 10*d;})
+.attr("x",function(d,i){return 50+(100/3)*(i-1);})
+.attr("y",function(d){return 300 - 10*d})
+
+--\
+var heightt = d3.scaleLinear().domain([0,42]).range([200,0]);
+d3.select("svg")
+.selectAll().data(data).enter().append("rect")
+.attr("width",100/3)
+.attr('height',function(d,i) {return heightt(d);}
+.attr("x",function(d,i){return (100/3)*(i-1);})
+.attr("y",function(d){return 300 - 10*d})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
