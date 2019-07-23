@@ -157,6 +157,26 @@ d3.select("svg")
 .attr("height",function(d,i){return 200-ys(d);})
 
 
+--
+xs= d3.scaleLinear().domain([0,5]).range([50,200]);
+ys= d3.scaleLinear().domain([0,42]).range([200,0]);
+ts = d3.scaleBand().domain(["a","b","c","d","e","f"]).range([50,200])
+d3.select("svg")
+.selectAll("rect").data(data).enter().append("rect")
+.attr("x",function(d,i){return xs(i);})
+.attr("y",function(d){return ys(d)})
+.attr("width",100/3)
+.attr("height",function(d,i){return 200-ys(d);})
+
+
+
+
+
+
+
+
+
+
 
 
 
