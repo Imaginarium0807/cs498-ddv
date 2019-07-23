@@ -106,6 +106,82 @@ d3.select("svg")
 .attr('height',function(d,i) {return heightt(d);}
 .attr("x",function(d,i){return (100/3)*(i-1);})
 .attr("y",function(d){return 300 - 10*d})
+--
+d3.select("svg")
+.selectAll().data(data).enter().append("rect")
+.attr("x",function(d,i){return (100/3)*(i);})
+.attr("y",function(d){return 300 - 10*d})
+.attr("width",100/3)
+.attr("height",function(d,i){return 10*d;})
+
+
+--
+
+ xs= d3.scaleLinear().domain([0,42]).range([0,200]);
+d3.select('svg')
+  .selectAll('rect')
+  .data(data)
+  .enter()
+  .append('rect')
+    .attr('x',function(d,i){return xs(i);})
+    .attr('y',function(d){return 300 - 10*d)
+    .attr("width",100/3)
+    .attr("height",function(d,i){return 10*d;}
+    --
+     xs= d3.scaleLinear().domain([0,42]).range([0,200]);
+d3.select('svg')
+  .selectAll('rect')
+  .data(data)
+  .enter()
+  .append('rect')
+    .attr('x',function(d,i){return xs(i);})
+    .attr('y',function(d){return 300 - 10*d)
+    .attr("width",100/3)
+    .attr("height",function(d,i){return 10*d;}
+--
+xs= d3.scaleLinear().domain([0,42]).range([0,200]);
+d3.select("svg")
+.selectAll().data(data).enter().append("rect")
+.attr("x",function(d,i){return xs(i);})
+.attr("y",function(d){return 300 - 10*d})
+.attr("width",100/3)
+.attr("height",function(d,i){return 10*d;})
+--yes 07222019---
+xs= d3.scaleLinear().domain([0,6]).range([0,200]);
+ys= d3.scaleLinear().domain([0,42]).range([200,0]);
+d3.select("svg")
+.selectAll().data(data).enter().append("rect")
+.attr("x",function(d,i){return xs(i);})
+.attr("y",function(d){return ys(d)})
+.attr("width",100/3)
+.attr("height",function(d,i){return 200-ys(d);})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
