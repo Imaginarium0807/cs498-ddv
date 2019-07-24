@@ -1,0 +1,25 @@
+const data = await d3.csv("https://flunky.github.io/cars2017.csv");
+console.log(data);
+
+height = 200;
+width = 200;
+margin = 50;
+
+xValue = function(d) { return d.AverageHighwayMPG};
+xScale = d3.scaleLinear().domain([10,150]).range([0,width]);
+xMap = function(d) { return xScale(xValue(d));};
+
+yValue = function(d) { return d.AverageCityMPG};
+yScale = d3.scaleLinear().domain([10,150]).range([height,0]);
+yMap = function(d) { return yScale(yValue(d));};
+
+d3.select("body").selectAll("svg")
+.attr("width",width+2*margin)
+.attr("height",height+2*margin)
+.append("g")
+.attr("transform","translate("+margin+","+margin+")")
+
+.selectAll("circle").data(data).enter().append("circle")
+.attr("cx",xMap)
+.attr("cy",yMap)
+.attr("r",2)
