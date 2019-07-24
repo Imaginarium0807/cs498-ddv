@@ -168,8 +168,29 @@ d3.select("svg")
 .attr("width",100/3)
 .attr("height",function(d,i){return 200-ys(d);})
 
+----7/24/2019--final versoin 
+margin = 50;
+height = 200;
+width = 200;
+xs= d3.scaleBand().domain([0,1,2,3,4,5]).range([0,width]);
+ys= d3.scaleLinear().domain([0,42]).range([height,0]);
 
-
+d3.select("svg")
+.attr("width",width+2*margin)
+.attr("height",height+2*margin)
+.append("g")
+.attr("transform","translate("+margin+","+margin+")")
+.selectAll("rect").data(data).enter().append("rect")
+.attr("x",function(d,i){return xs(i);})
+.attr("y",function(d){return ys(d)})
+.attr("width",100/3)
+.attr("height",function(d,i){return 200-ys(d);});
+d3.select("svg").append("g")
+.attr("transform","translate("+margin+","+margin+")")
+.call(d3.axisLeft(ys));
+d3.select("svg").append("g")
+.attr("transform","translate("+margin+","+(height+margin)+")")
+.call(d3.axisBottom(xs));
 
 
 
