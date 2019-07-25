@@ -51,3 +51,80 @@ d3.select("body").selectAll("svg")
 .attr("cx",xMap)
 .attr("cy",yMap)
 .attr("r",rValue)
+-------------------
+
+const data = await d3.csv("https://flunky.github.io/cars2017.csv");
+console.log(data)
+height = 200;
+width = 200;
+margin = 50;
+
+xValue = function(d) { return d.AverageCityMPG};
+xScale = d3.scaleLog().domain([10,150]).range([0,width]);
+xMap = function(d) { return xScale(xValue(d));};
+
+yValue = function(d) { return d.AverageHighwayMPG};
+yScale = d3.scaleLog().domain([10,150]).range([height,0]);
+yMap = function(d) { return yScale(yValue(d));};
+
+rValue = function(d) { return +d.EngineCylinders+2};
+
+
+
+d3.select("body").selectAll("svg")
+.attr("width",width+2*margin)
+.attr("height",height+2*margin)
+.append("g")
+.attr("transform","translate("+margin+","+margin+")")
+
+.selectAll("circle").data(data).enter().append("circle")
+.attr("cx",xMap)
+.attr("cy",yMap)
+.attr("r",rValue)
+
+
+--
+
+
+
+const data = await d3.csv("https://flunky.github.io/cars2017.csv");
+console.log(data)
+height = 200;
+width = 200;
+margin = 50;
+
+xValue = function(d) { return d.AverageCityMPG};
+xScale = d3.scaleLog().domain([10,150]).range([0,width]);
+xMap = function(d) { return xScale(xValue(d));};
+
+yValue = function(d) { return d.AverageHighwayMPG};
+yScale = d3.scaleLog().domain([10,150]).range([height,0]);
+yMap = function(d) { return yScale(yValue(d));};
+
+rValue = function(d) { return +d.EngineCylinders+2};
+
+d3.select("body").selectAll("svg")
+.attr("width",width+2*margin)
+.attr("height",height+2*margin)
+.append("g")
+.attr("transform","translate("+margin+","+margin+")")
+
+.selectAll("circle").data(data).enter().append("circle")
+.attr("cx",xMap)
+.attr("cy",yMap)
+.attr("r",rValue);
+
+d3.select("svg").append("g")
+.attr("transform","translate("+margin+","+margin+")")
+.call(d3.axisLeft(yScale).tickValues([10,20,50,100])
+.tickFormat(d3.format("~s")));
+
+d3.select("svg").append("g")
+.attr("transform","translate("+margin+","+(height+margin)+")")
+.call(d3.axisBottom(xScale).tickValues([10,20,50,100])
+.tickFormat(d3.format("~s")))
+
+
+
+
+
